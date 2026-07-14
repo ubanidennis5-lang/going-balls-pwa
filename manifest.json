@@ -1,7 +1,7 @@
 {
-  "name": "Balls",
-  "short_name": "Balls",
-  "description": "Block breaker arcade game",
+  "name": "Going Balls 3D",
+  "short_name": "Going Balls",
+  "description": "A fast-paced 3D rolling ball platformer.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0D0D1A",
@@ -11,12 +11,12 @@
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }
