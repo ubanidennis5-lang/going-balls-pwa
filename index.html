@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0D0D1A" />
+  <meta name="description" content="Aim, shoot, and bounce balls to destroy numbered blocks before they reach the bottom!" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Balls" />
+  <title>Balls — Block Breaker</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <!-- Menu Screen -->
+    <div id="menu-screen" class="screen active">
+      <div class="menu-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+      <div class="menu-content">
+        <div class="logo-wrap">
+          <div class="logo-icon">⚪</div>
+          <h1 class="logo-title">BALLS</h1>
+          <p class="logo-sub">Block Breaker</p>
+        </div>
+        <div class="best-score-display" id="menu-best-score">BEST: 0</div>
+        <button id="play-btn" class="btn-primary">PLAY</button>
+        <p class="hint-text">Aim · Shoot · Bounce · Destroy</p>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value" id="score-display">0</span>
+        </div>
+        <div class="hud-item hud-center">
+          <span class="ball-count" id="ball-count">x1</span>
+        </div>
+        <div class="hud-item hud-right">
+          <span class="hud-label">BEST</span>
+          <span class="hud-value" id="best-display">0</span>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="game-canvas"></canvas>
+        <div id="aim-hint" class="aim-hint">Drag to aim</div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="screen">
+      <div class="gameover-bg"></div>
+      <div class="gameover-card">
+        <div class="gameover-icon">💥</div>
+        <h2 class="gameover-title">GAME OVER</h2>
+        <div class="gameover-scores">
+          <div class="score-row">
+            <span class="score-label">Score</span>
+            <span class="score-val" id="final-score">0</span>
+          </div>
+          <div class="score-row best-row">
+            <span class="score-label">Best</span>
+            <span class="score-val best-val" id="final-best">0</span>
+          </div>
+        </div>
+        <div class="new-best-badge" id="new-best-badge">🏆 New Best!</div>
+        <button id="restart-btn" class="btn-primary">PLAY AGAIN</button>
+        <button id="menu-btn" class="btn-secondary">MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
